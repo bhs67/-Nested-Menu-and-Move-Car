@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- Names have been changed to clarify which are nemes
+     Comments have been added to clarify actions -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Toolbox Customization Codelab</title>
+    <script src="https://unpkg.com/blockly@11/blockly.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="ToolboxScreen.js"></script>
+    <script src="MenuForwardBackward.js"></script>
+    <script src="MenuTurnLeftRight.js"></script>
+    <script>
+      function fMoveButton() {
+          // Get the JavaScript code for the workspace
+          const jsCode = javascript.javascriptGenerator.workspaceToCode(workspace);
+          // Run the JavaScript code 
+          eval(jsCode);
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <div id="idBlocksAndButtons" class="split left">
+        <div id="idBlocklyDiv"></div>
+        <button class="button mdl-color--red-500" onclick="fMoveButton()">Move</button>
+      </div>
+      <div id="idCanvasContainer" class="split right">
+        <canvas id="canvas" width="900" height="520"></canvas>
+      </div>
+      <script src="ImagesOnScreen.js"></script>
+    </main>
+    <script>
+      const nameToolbox = {
+        // "categoryToolbox" is a Toolbox
+        "kind": "categoryToolbox",
+        "contents": [
+          // Main menu
+          {
+            // "category" is a Menu item
+            "kind": "category",
+            // The word "Menu" is displayed on the Main menu
+            "name": "Menu",
+            "contents": [
+              {
+                // "block" creates a block on the screen
+                "kind": "block",
+                // "Block name" found in a .js file
+                "type": "typeSimulator"
+              },
+            ]
+          },
+          // Main menu
+          {
+            // "category" is a Menu item
+            "kind": "category",
+            // The word "Movement" is displayed on the Main menu
+            "name": "Movement",
+            "contents": [
+              // Nested menu
+              {
+                // "category" is a Menu item
+                "kind": "category",
+                // The words "Forward or backward" are displayed on the Nested menu
+                "name": "Forward or backward",
+                "contents": [
+                  {
+                    // "block" creates a block on the screen
+                    "kind": "block",
+                    // "typeForwardBackward" is the block name found in a .js file
+                    "type": "typeForwardBackward"
+                  }
+                ]
+              },
+              // Nested menu
+              {
+                // "category" is a Menu item
+                "kind": "category",
+                // The words "Turn left or right" are displayed on the Nested menu
+                "name": "Turn left or right",
+                "contents": [
+                  {
+                    // "block" creates a block on the screen
+                    "kind": "block",
+                    // "typeTurnLeftRight" is the block name found in a .js file
+                    "type": "typeTurnLeftRight"
+                  }
+                ]
+              }
+            ]
+          },
+        ]
+      }
+      const workspace = Blockly.inject('idBlocklyDiv', {toolbox: nameToolbox});
+      // Place a block on the starting screen
+      Blockly.serialization.blocks.append({
+          type: 'typeToolboxScreen',
+          // do not allow it to be deleted
+          deletable: false,
+          movable: false,
+          editable: false,
+      }, workspace);
+      workspace.addChangeListener(Blockly.Events.disableOrphans);
+      const jsCode = javascript.javascriptGenerator.workspaceToCode(workspace);
+    </script>
+  </body>
+</html>

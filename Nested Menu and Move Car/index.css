@@ -1,0 +1,66 @@
+/* This <main> is the area below the Blockly area. */
+/* Set the body font params - affects "em" (a unit of measurement) */
+main {
+  height: 100%;
+  position: relative;
+  overflow:hidden;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20pt;
+}
+
+#idBlocklyDiv {
+  height: 50%;
+  width: 100%;
+}
+
+#idBlocksAndButtons {
+  background: #ffff00;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+/* Defines the .button params */
+.button {
+  width: 80px;
+  height: 40px;
+  color: #ffffff;
+  border-color: #ff0000;
+  font-size: 1em;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+}
+.mdl-button {
+  margin: 1em 0;
+  float: right;
+}
+/* From cars */
+body{
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  /* px units are used for absolute values, while em is relative
+      to the font size of the particular element */
+  #idCanvasContainer {
+    display: flex;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+}
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+}
+
+.left {
+  width: 60%;
+  left: 0;
+}
+
+.right {
+  width: 40%;
+  right: 0;
+}
