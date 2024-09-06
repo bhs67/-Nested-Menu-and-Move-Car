@@ -30,8 +30,12 @@ Blockly.defineBlocksWithJsonArray
     ],
     "args1": [
       {
-        "type": "example_number",
+        "type": "field_number",
         "name": "nameTurnLeftRight",
+        "value": 100,
+        "min": 0,
+        "max": 100,
+        "precision": 10,
         "options": [
           [
             "degrees",
